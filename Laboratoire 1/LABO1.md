@@ -5,7 +5,7 @@
 ### Création d'un repository (hébergement de donnnées, documents, etc...)
 ### Ouverture d'un codespace pour configurer et documenter la premiere partie (création d'un dossier pour le Labo1, création d'un Readme pour la rédaction)
 
-
+![Image Alt](image_url)
 
 git config --global user.name "Lorry139"
 git config --global user.email "randrianirina.lorry_mael@courrier.uqam.ca"
