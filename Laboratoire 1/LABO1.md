@@ -19,6 +19,10 @@ Ouverture des données ouvertes Montreal de type csv a partir de la fenetre add 
 - Ajout d'un outil de transformation (Transformer), Vertexcreator afin de modifier les colonnes LatLong dans les données CSV.
 Afin de continuer la procédure de transformation sans interruption, ajout d'unoutil logger permettant de filtrer les données comportant les erreur.
 Apres cela, connecter les données a extraire (CSV), les transformeurs ( VertexCreator, Logger), et la base de données pour Load le tout (Writer)
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/ad0c11df6aa884603336e7012fa505e4381a83a5/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20171444.png).
+
+- Chargement des données sur QGIS et visualisation
+Tout d'abord, commencer par ouvrir QGIS, ensuite ouvrir la fenetre de connection PostGreSQL, nouvelle connexion et rentrer les informations de la base de données Writer sur FME.
 ![Image Alt](image_url).
 
 
