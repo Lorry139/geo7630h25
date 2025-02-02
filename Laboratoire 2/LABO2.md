@@ -14,3 +14,14 @@ Remarques : Toujours vérifier si l'option feature caching est activée pour ins
 #### b- Reprojection des données avec l'outil Reprojector
 Reprojeter en **MTM8 (EPSG:32188)** garantit l’alignement des couches SIG, améliore la précision des analyses locales et minimise les distorsions. Ce système est adapté aux régions spécifiques comme le Québec, respectant les standards géospatiaux locaux.
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b7bdf1b9034dd7c31279852b5bca64fa6a7bd73e/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-02%20135220.png).
+
+#### c- Jointure spatiale des données avec l'outil de transformation **PointOnAreaOverlay**
+Une **jointure spatiale** associe des données de deux couches SIG en fonction de leur relation géographique (intersection, contenance, proximité). Elle permet d'enrichir les données en liant attributs et géométries selon leur emplacement spatial.
+- Elle permet d'associer chaque arbre dans chaque quartier.
+- Elle permet aussi de calculer la somme des arbres dans chaque quartier.
+
+##### - Mais avant tout, utiliser l'outil attribute filter sur le fichier CSV (Arbres)
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/2079635c29549a955d1faaef143de2b0a2151f71/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-02%20141609.png).
+
+##### - Nettoyage des attributs en utilisant l'outil AttributeKeeper pour filtrer les jeux de données dont nous aurons besoin, les attributs pertinents ( nombres d'arbres et noms de quartiers )
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/aaeb5a0b33787f3087ebfea0053b7176babd0d10/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-02%20142853.png).
