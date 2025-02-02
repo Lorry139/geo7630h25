@@ -11,7 +11,6 @@
 
 - Étape de traitement de données sur FME (ETL)
 Ouverture des données ouvertes Montreal de type csv a partir de la fenetre add reader
-[ImageAlt](https://github.com/Lorry139/geo7630h25/blob/262d49fe443d9f93cc59061162a068bde0d752a3/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20124238.png)
-
+![Image Alt]()
 git config --global user.name "Lorry139"
 git config --global user.email "randrianirina.lorry_mael@courrier.uqam.ca"
