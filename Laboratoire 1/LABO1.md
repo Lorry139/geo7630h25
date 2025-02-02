@@ -14,7 +14,7 @@ Ouverture des données ouvertes Montreal de type csv a partir de la fenetre add 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/85130a233eaa11bc9cc654cb7f6331133d8e94cd/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20124238.png)
 
 - Établir la connection avec la base de données PostGIS dans Add Writer
-![Image Alt](image_url)
+![Image Alt]([https://github.com/Lorry139/geo7630h25/blob/564687f3e258b3613188f8fd19c90799c49c2270/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20132447.png]
 
 git config --global user.name "Lorry139"
 git config --global user.email "randrianirina.lorry_mael@courrier.uqam.ca"
