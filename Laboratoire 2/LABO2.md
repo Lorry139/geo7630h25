@@ -23,5 +23,5 @@ Une **jointure spatiale** associe des données de deux couches SIG en fonction d
 ##### - Mais avant tout, utiliser l'outil attribute filter sur le fichier CSV (Arbres)
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/2079635c29549a955d1faaef143de2b0a2151f71/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-02%20141609.png).
 
-##### - Nettoyage des attributs en utilisant l'outil AttributeKeeper pour filtrer les jeux de données dont nous aurons besoin, les attributs pertinents ( nombres d'arbres et noms de quartiers )
+- Nettoyage des attributs en utilisant l'outil **AttributeKeeper** pour filtrer les jeux de données dont nous aurons besoin, les attributs pertinents ( nombres d'arbres et noms de quartiers )
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/aaeb5a0b33787f3087ebfea0053b7176babd0d10/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-02%20142853.png).
