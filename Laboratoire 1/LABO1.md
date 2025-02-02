@@ -16,5 +16,11 @@ Ouverture des données ouvertes Montreal de type csv a partir de la fenetre add 
 - Établir la connection avec la base de données PostGIS dans Add Writer
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/74536bb5034dc21871ef818178c2d3253078be3c/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20132447.png).
 
+- Ajout d'un outil de transformation (Transformer), Vertexcreator afin de modifier les colonnes LatLong dans les données CSV.
+Afin de continuer la procédure de transformation sans interruption, ajout d'unoutil logger permettant de filtrer les données comportant les erreur.
+Apres cela, connecter les données a extraire (CSV), les transformeurs ( VertexCreator, Logger), et la base de données pour Load le tout (Writer)
+![Image Alt](image_url).
+
+
 git config --global user.name "Lorry139"
 git config --global user.email "randrianirina.lorry_mael@courrier.uqam.ca"
