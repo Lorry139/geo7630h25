@@ -26,7 +26,9 @@ Tout d'abord, commencer par ouvrir QGIS, ensuite ouvrir la fenetre de connection
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/cd39d96cd857c1c78170c496019858cfaf0d55dd/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20173604.png).
 
 - Visualisation sur QGIS et modification du style selon les préférences
-![Image Alt](image_url).
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/a66cc747913a0f4d40f11b0ed00283a96a51c36a/Laboratoire%201/Capture%20d%E2%80%99%C3%A9cran%202025-02-01%20174308.png).
+
+Fin du Laboratoire n°1
 
 
 git config --global user.name "Lorry139"
