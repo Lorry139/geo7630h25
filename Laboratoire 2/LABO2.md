@@ -25,3 +25,9 @@ Une **jointure spatiale** associe des données de deux couches SIG en fonction d
 
 - Nettoyage des attributs en utilisant l'outil **AttributeKeeper** pour filtrer les jeux de données dont nous aurons besoin, les attributs pertinents ( nombres d'arbres et noms de quartiers )
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/aaeb5a0b33787f3087ebfea0053b7176babd0d10/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-02%20142853.png).
+
+#### d- Calcul des statistiques via l'outil Attribute Creator (Création d'un attribut pour désigner la densité d'arbres dans chqaue quartier)
+Pour ce faire, l'"Attribute Creator" nous permettra de créer un nouvel attribut : Densité d'arbres, en procédant par le calcul, nombres d'arbres/Area dans la fenetre "FME feature Attribute" et dans la "FME feature Function" sur la colonne value.
+Sur la colonne Output Attribute, nous écrirons le champ "densité d'arbres"
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/a4caf959ceb4db0f2318aeee779c254571e3b8c3/Laboratoire%202/Capture%20d%E2%80%99%C3%A9cran%202025-02-05%20145706.png).
+
