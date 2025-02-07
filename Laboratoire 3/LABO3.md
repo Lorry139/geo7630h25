@@ -13,3 +13,6 @@
 
 ### 3- Jointure Spatiale
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/a1be6a90aa0734399b68a8cb9b19a06e32b82388/Laboratoire%203/Capture%20d%E2%80%99%C3%A9cran%202025-02-04%20094342.png).
+
+### 4- Nettoyage des données
+Pour le nettoyage et la sélection des données, on utilisera soit l'outil Attribute Keeper, soit l'outil Attribute Manager.
