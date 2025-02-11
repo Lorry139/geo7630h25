@@ -7,7 +7,7 @@
 
 ### 1- Chargement des données sur FME
 Ajout d'un Reader CSV pour les données des arbres de Montréal, et d'un Reader GEOJSON pour les données des quartiers de Montréal.
-
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/4272f66ac276690b546f22e97bc56911647fdd06/Laboratoire%203/Capture%20d%E2%80%99%C3%A9cran%202025-02-11%20171545.png).
 
 ### 2- Reprojection des données avec l'outil Reprojector
 Conformément au LABO 2, le transformer Reprojector sera parametré dans le Systeme de coordonnées EPSG : 32188 pour les deux jeux de données.
