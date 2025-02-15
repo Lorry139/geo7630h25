@@ -11,6 +11,7 @@ Ce laboratoire vise à :
 
 # Intégration des données sur FME
 Dans cette 1ère partie, nous allons intégrer les données de types TIF et ou CoG (Cloud Optimized GEOtiff) via un Reader de type CoG et un reader de type Png.
+
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/d065ad0fbaf0af53435f0956a3c209fe8d32c398/Laboratoire%204/LABO4_1.png).
 
 Ensuite, il faut créer un bookmarks pour chaque traitement que l'on va faire, mais aussi pour bien distinguer les données qui ont été upload dans FME.
