@@ -40,14 +40,23 @@ Nous allons donc réechantillonner les rows/columns par 10 en utilisant le calcu
 Cela consiste à créer une série de pyramides raster, c'est-à-dire des versions de résolution inférieure d'une image raster originale, ce qui optimise l'affichage et l'analyse de grandes images sur différents niveaux de zoom.
 Nous allons donc utiliser l'outil "RasterPyramider" et changer dans les parametres le nombre de niveau à 10.
 
-<![Image Alt](https://github.com/Lorry139/geo7630h25/blob/f6287647412b8eb624e49f39003ec9e591644990/Laboratoire%204/LABO4_6.png).
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/f6287647412b8eb624e49f39003ec9e591644990/Laboratoire%204/LABO4_6.png).
 
 ### e- Ajout d'un FeatureWriter
 L'outil "FeatureWriter" permet de de chaîner les actions à la suite de l’écriture, contrairement au Writer de base.
 
-<![Image Alt](https://github.com/Lorry139/geo7630h25/blob/73cfaf7b7bfa6f5550cf29290eef147a3d2ab7df/Laboratoire%204/LABO4_7.png).
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/73cfaf7b7bfa6f5550cf29290eef147a3d2ab7df/Laboratoire%204/LABO4_7.png).
 
 ### f- SQL Executor pour visualiser à la fin
 L'utilisation d'un outil "SQL Executor" est nécessaire pour exécuter des requêtes SQL directement sur une base de données spatiale ou non spatiale
 
-<![Image Alt](https://github.com/Lorry139/geo7630h25/blob/73cfaf7b7bfa6f5550cf29290eef147a3d2ab7df/Laboratoire%204/LABO7_8.png).
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/73cfaf7b7bfa6f5550cf29290eef147a3d2ab7df/Laboratoire%204/LABO7_8.png).
+
+## 2-  Intégration de raster analytique - Ilôts de chaleur
+La premiere étape sera de faire la meme chose que dans la premiere partie, c'est à-dire reprojeter les données pour les ilots de chaleur en EPSG:321888
+### a- Conversion des images raster en entités vectorielles polygonales
+Cette procédure se fait à partir de l'outil "RasterToPolygonCoercer". Cet outil sert à transformer des informations raster, comme des classifications d'images ou des modèles numériques de terrain, en formes vectorielles pour une analyse ou une visualisation plus poussée.
+Changer le label attribute en "Classification"
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/6dd0e3b8135d6ff543a4f6e06e83f98e40db8a78/Laboratoire%204/LABO7_9.png).
+
