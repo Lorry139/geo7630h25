@@ -10,7 +10,7 @@ Ce laboratoire vise à :
     Les données que nous allons utiliser se trouvent dans ce lien : https://drive.google.com/drive/folders/1iRcyRWS_JiTciNdonm8leC7Nq03hRY5_?usp=sharing
 
 # Intégration des données sur FME
-Dans cette 1ère partie, nous allons intégrer les données de types TIF et ou CoG (Cloud Optimized GEOtiff) via un Reader de type CoG et un reader de type Png.
+Dans cette 1ère partie, nous allons intégrer les données de types TIF et ou CoG (Cloud Optimized GEOtiff) via un Reader de type CoG et un reader de type PNG.
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/d065ad0fbaf0af53435f0956a3c209fe8d32c398/Laboratoire%204/LABO4_1.png).
 
@@ -32,6 +32,13 @@ Pour cela, nous allons utiliser l'outil de transformation "RasterPropertyExtract
 
 ### c- Réechantillonnage de l'image raster
 Le transformateur "RasterResampler" dans FME est utilisé pour redimensionner ou rééchantillonner une image raster, ajustant ainsi sa résolution, sa taille ou sa géométrie pour répondre à des exigences spécifiques ou pour l'aligner avec d'autres données spatiales.
-Nous allons donc réechantillonner les rows/columns par 10 en utilisant le calculateur integré du transformateur soit Nombre de colomne/10 et Nombre de rows/10
+Nous allons donc réechantillonner les rows/columns par 10 en utilisant le calculateur integré du transformateur soit Nombre de colomne/10 et Nombre de rows/10.
+
+### d- Optimisation de l'affichage par création de pyramides sur le raster
+Cela consiste à créer une série de pyramides raster, c'est-à-dire des versions de résolution inférieure d'une image raster originale, ce qui optimise l'affichage et l'analyse de grandes images sur différents niveaux de zoom.
+Nous allons donc utiliser l'outil "RasterPyramider" et changer dans les parametres le nombre de niveau à 10.
+
+<![Image Alt](https://github.com/Lorry139/geo7630h25/blob/f6287647412b8eb624e49f39003ec9e591644990/Laboratoire%204/LABO4_6.png).
+
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/c235e534f7c3d22acc1233c79cc4b9fc126f7275/Laboratoire%204/LABO4_5.png).
