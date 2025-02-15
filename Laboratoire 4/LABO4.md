@@ -20,6 +20,13 @@ Ensuite, il faut créer un bookmarks pour chaque traitement que l'on va faire, m
 
 ## 1- Intégration d'image aérienne standard
 ### a- Reprojection des données
-La première partie de labo consistera donc à reprojeter les données d'images aériennes ( PNG) en EPSG:32188 en utilisant l'outil de transformation Reprojector.
+La première partie de labo consistera donc à reprojeter les données d'images aériennes ( PNG) en EPSG:32188 en utilisant l'outil de transformation "Reprojector".
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/ecffd1a2090b6a596e6f538ac6e1d763e0630d50/Laboratoire%204/LABO4_3.png).
+
+### b- Extraction des métadonnées du raster
+L'étape d'extraction des métadonnées consiste à extraire des propriétés et des métadonnées d'un raster, telles que la dimension, le type de données, le nombre de bandes, et d'autres informations essentielles à son analyse et traitement.
+Pour cela, nous allons utiliser l'outil de transformation "RasterPropertyExtractor", et les données les importants sont ainsi liés aux proprietés essentielles d'un raster, c'est-à-dire les pixels, les rangées, et les bandes.
+
+![Image Alt]([https://github.com/Lorry139/geo7630h25/blob/ecffd1a2090b6a596e6f538ac6e1d763e0630d50/Laboratoire%204/LABO4_3.png](https://github.com/Lorry139/geo7630h25/blob/ed735b85f31fa381a76465c811abb46d0f200bc1/Laboratoire%204/LABO4_4.png)).
+
