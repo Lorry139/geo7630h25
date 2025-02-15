@@ -30,3 +30,8 @@ Pour cela, nous allons utiliser l'outil de transformation "RasterPropertyExtract
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/ed735b85f31fa381a76465c811abb46d0f200bc1/Laboratoire%204/LABO4_4.png).
 
+### c- Réechantillonnage de l'image raster
+Le transformateur "RasterResampler" dans FME est utilisé pour redimensionner ou rééchantillonner une image raster, ajustant ainsi sa résolution, sa taille ou sa géométrie pour répondre à des exigences spécifiques ou pour l'aligner avec d'autres données spatiales.
+Nous allons donc réechantillonner les rows/columns par 10 en utilisant le calculateur integré du transformateur soit Nombre de colomne/10 et Nombre de rows/10
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/c235e534f7c3d22acc1233c79cc4b9fc126f7275/Laboratoire%204/LABO4_5.png).
