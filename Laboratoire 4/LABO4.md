@@ -42,3 +42,12 @@ Nous allons donc utiliser l'outil "RasterPyramider" et changer dans les parametr
 
 <![Image Alt](https://github.com/Lorry139/geo7630h25/blob/f6287647412b8eb624e49f39003ec9e591644990/Laboratoire%204/LABO4_6.png).
 
+### e- Ajout d'un FeatureWriter
+L'outil "FeatureWriter" permet de de chaîner les actions à la suite de l’écriture, contrairement au Writer de base.
+
+<![Image Alt](https://github.com/Lorry139/geo7630h25/blob/73cfaf7b7bfa6f5550cf29290eef147a3d2ab7df/Laboratoire%204/LABO4_7.png).
+
+### f- SQL Executor pour visualiser à la fin
+L'utilisation d'un outil "SQL Executor" est nécessaire pour exécuter des requêtes SQL directement sur une base de données spatiale ou non spatiale
+
+<![Image Alt](https://github.com/Lorry139/geo7630h25/blob/73cfaf7b7bfa6f5550cf29290eef147a3d2ab7df/Laboratoire%204/LABO7_8.png).
