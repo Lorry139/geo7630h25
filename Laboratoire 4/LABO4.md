@@ -34,7 +34,7 @@ Pour cela, nous allons utiliser l'outil de transformation "RasterPropertyExtract
 Le transformateur "RasterResampler" dans FME est utilisé pour redimensionner ou rééchantillonner une image raster, ajustant ainsi sa résolution, sa taille ou sa géométrie pour répondre à des exigences spécifiques ou pour l'aligner avec d'autres données spatiales.
 Nous allons donc réechantillonner les rows/columns par 10 en utilisant le calculateur integré du transformateur soit Nombre de colomne/10 et Nombre de rows/10.
 
-[![Image Alt]().](https://github.com/Lorry139/geo7630h25/blob/352254ad167520969dfdc6a8916d46591d01f152/Laboratoire%204/LABO4_5.png)
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/352254ad167520969dfdc6a8916d46591d01f152/Laboratoire%204/LABO4_5.png)
 
 ### d- Optimisation de l'affichage par création de pyramides sur le raster
 Cela consiste à créer une série de pyramides raster, c'est-à-dire des versions de résolution inférieure d'une image raster originale, ce qui optimise l'affichage et l'analyse de grandes images sur différents niveaux de zoom.
