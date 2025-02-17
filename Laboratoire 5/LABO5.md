@@ -71,16 +71,65 @@ Suite a cela, ajouter un "Esri Reprojector" de 2950 to 3857.
 Ajouter un "PointCloudOnRasterComponentSetter" pour enrichir des jeux de données LiDAR ou tout autre nuage de points avec des informations dérivées de rasters, comme l’élévation, l’intensité ou des classifications.
 Connecter les résultats de l'étape 3 avec cet outil aussi et garder les parametres par défaut.
 
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_16.png)
 
-![Image Alt]()
+Ensuite ajouter un "PointCloudCombiner" pour combiner ce dernier résultat en un seul nuage de point.
+La prochaine étape sera de filtrer les valeurs du nuage de point avec l'outil "PointCloudFliter".
+- On utilisera l'expression @Component(color_red)!=0&&@Component(color_blue)!=0&&@Component(color_green)=0
+Ce qui signifie que l'on va juste conserver les valeurs RGB = 0
 
-![Image Alt]()
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_17.png)
 
-![Image Alt]()
+Et enfin pour cette étape, nous allons transformer le nuage de points en couche de vecteurs ponctuels simple avec un "PointCloudCoercer", en s’assurant de garder les composantes nécessaires pour la suite (Z,rouge, bleu, vert).
 
-![Image Alt]()
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_19.png)
 
-![Image Alt]()
+## 5- Ajout des emprunts et details de bâtiments
+Maintenant que le nuage de point est nettoyé et préparé, nous allons assigner le Z et la couleur aux polygones de bâtiments.
+
+### a- Ajout et reprojection des données des batiments
+Tout d'abord ajouter les données des batiments de type "Shapefile" puis les reprojeter de 2950 en 3857 avec l'outil "EsriReprojector"
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_21.png)
+
+### b- Calcul de l'entité spatiale
+Pour calculer l'entité spatiale, nous allons utiliser un outil appelé "BoundingBoxAccumulator" qui permet de déterminer la boîte englobante d’un groupe d’objets géographiques (points, lignes, polygones ou rasters), ce qui est utile pour analyser ou délimiter une zone d’intérêt.
+Connecter les 4 Rasters déja filtré dans l'étape 4 avec l'outil.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_22.png)
+
+### c- Découpage et calcul avec BoudingBox
+Découper les shapefile pour pouvoir travailler dans une zone désigné est nécessaire dans ce travail. C'est pour cela que nous allons ajouter un clipper pour chaque Shapefile que l'on a uploadé dans ce projet et ensuite, connecter les résultats de calcul de l'outil "BoundingBoxAccumulator" avec chaque clipper.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_23.png)
+
+On découpe ensuite nos polygones et lignes via un outil nommé "PolygonCutter" en connectant bien les shapefile concernés.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_24.png)
+
+## 6- Jointure des propriétés du nuage de points dans les polygones
+Joindre les polygones détaillés avec les points du nuages de points (Étape 4) pour y injecter les valeurs de Z et de couleur du batiments avec un "PointOnAreaOverlayer".
+Dans les parametres, on va accumuler les informations de Z et de couleurs pour ensuite calculer les moyennes qui nous permettront d’attribuer à chaque “bâtiments” une hauteur moyenne et une couleur. Donc dans Area List Name, ce sera "z_accumulation".
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_25.png)
+
+Apres cela, on va faire la somme des Z grace a l'outil "ListSummer".
+Bien choisir l'attribut z_accumulation et nommer l'output en sum.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_26.png)
+
+Créer ensuite un attribut désignant la moyenne grace a l'"AttributeCreator" en la nommant z et en utilisant cet expression pour le calcul : @Evaluate(@round(@Value(_sum)/@Value(_overlaps),4))
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_27.png)
+
+A la fin, ne garder que les deux proprietés qui nous intéressent, le "z" et "z_accumulation" en utilisant l'outil "AttributeManager".
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_28.png)
+
+Utiliser un "ColorConverter"(convertir des couleurs d’un format à un autre) pour transformer le FME color en RGB ou WebRGB. 
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/56638ed607eaa2e34f6222849e1121d13894650d/Laboratoire%205/LABO5_29.png)
+
+Enfin, exporter le résultat final dans un Writer de type GeoJson qu'il faut ensuite ouvrir sur le fichier Maplibre.html pour la visualisation.
 
 ![Image Alt]()
 
