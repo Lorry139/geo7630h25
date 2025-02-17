@@ -62,4 +62,10 @@ Changer le label attribute en "Classification"
 
 ### b- Réecriture des résultats et visualisation dans la BD
 Apres cela, nous allons désormais connecter le RasterToPolygonCoercer avec notre BD(writer) et ensuite visualiser les ilots de chaleur via QGIS.
+La différence sera que cette fois-ci, ce sera un Writer de type PostGIS et non PostGIS Raster car on travaille sur des couches vecteurs.
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/c2eaecb6cfec601f2169bd9d04717a826360986e/Laboratoire%204/LABO4_10.png)
+
+Dans QGIS, modifier la symbiologie de la couche ilots de chaleur en "catégorisé", puis choisir une palette de couleur, ensuite classer pour avoir l'apercu désiré.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/c2eaecb6cfec601f2169bd9d04717a826360986e/Laboratoire%204/LABO4_11.png)
 
