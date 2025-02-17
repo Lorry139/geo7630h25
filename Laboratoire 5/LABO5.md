@@ -53,6 +53,28 @@ Donc tout d'abord, ajouter les 4 fichiers rasters dans le fichier du laboratoire
 
 Apres l'ajout, reprojeter les fichiers rasters de 3857 vers 32188.
 
+Ensuite, ajouter un "RasterMosaicker" qui consistera a assembler des images ou des données raster provenant de différentes sources afin de créer une image unique et homogène.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/8a3282ea8c365a6010c8d3566e4c0f9062ce42e2/Laboratoire%205/LABO5_12.png)
+
+Puis ajouter un "RasterSelector" pour choisir les 3 bandes RGB et supprimer la bande alpha. Cet outil permet gérer efficacement plusieurs rasters en ne conservant que ceux qui répondent à certaines conditions.
+
+Pour connaître sur quelle bande se situe quelle couleur vous pouvez ajouter un "RasterPropertyExtractor" et collez y un "ListExploder" sur la propriété BAND. Le but est d'extraire les propriétés et métadonnées d'un raster.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/8a3282ea8c365a6010c8d3566e4c0f9062ce42e2/Laboratoire%205/LABO5_13.png)
+
+
+
+![Image Alt]()
+
+![Image Alt]()
+
+![Image Alt]()
+
+![Image Alt]()
+
+![Image Alt]()
+
 ![Image Alt]()
 
 ![Image Alt]()
