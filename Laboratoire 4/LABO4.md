@@ -79,3 +79,37 @@ Et enfin pour visualiser l'amélioration, le dernier traitemwent consiste a tran
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/14604897b87d496280cffbfff6f28b00d133c971/Laboratoire%204/LABO4_13.png)
 
+### d- Conversion de tous les pixels du Raster
+Pour convertir tous les pixels du raster en point, ligne, polygones et non seulement en polygone comme dans la derniere étape, nous devons utiliser un outil appelé "RasterCellCoercer".
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/1e74174fda0fed7e28fbc276e157894af853d2ae/Laboratoire%204/LABO4_14.png)
+
+Comme il a été déja converti, nous pouvons donc la visualiser sur QGIS en la connectant avec notre base de données PostGIS.
+Extraire la valeur Z que l'on a transformé en utilisant cet expression dans la symbologie de QGIS "$z".
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/1e74174fda0fed7e28fbc276e157894af853d2ae/Laboratoire%204/LABO4_15.png)
+
+## 3- Intégration de raster (MNS)
+### a- Ajout d'un ContourGenerator
+Le transformateur "ContourGenerator" dans FME est utilisé pour créer des lignes de contour à partir d'une surface raster, représentant des niveaux d'altitude à intervalles réguliers
+Cette étape est nécessite beaucoup de temps d'éxécution.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/6a7d09d3eba6e3dd3248eaa1277ebbe927216bfe/Laboratoire%204/LABO4_16.png)
+
+### b- Ajout d'un Generalizer
+Un "generalizer" permet de simplifier les géométries vectorielles (lignes ou polygones) en réduisant le nombre de sommets tout en conservant la forme générale de l'entité. A la fois, elle contribue a réduire énormément la taille des fichiers tout en minimisant les pertes de données géométriques importantes.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/6a7d09d3eba6e3dd3248eaa1277ebbe927216bfe/Laboratoire%204/LABO4_17.png)
+
+### c- Ajout d'un AreaBuilder
+Un transfomateur "AreaBuilder" permet de créer des polygones à partir de lignes fermées ou d'ensembles de lignes dans FME, permettant de transformer des données linéaires(contours, des limites ou des tracés) en zones fermées pour des analyses spatiales ou des visualisations.
+Conserver les parametres par défaut de l'outil lors de l'éxécution.
+
+### d- Chargement et visualisation finale dans QGIS
+Enfin, charger dans la base de données PostGIS pour que l'on puisse enfin visualiser l'extrapolation des batiments en 2D.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/6a7d09d3eba6e3dd3248eaa1277ebbe927216bfe/Laboratoire%204/LABO4_18.png)
+
+Pour conclure ce laboratoire, voici le workflow obtenu tout au long de l'intégration matricielle que nous avons réalisé.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/231a739a79879a86b3f29b9618b7d41744889a87/Laboratoire%204/LABO4_19.png)
