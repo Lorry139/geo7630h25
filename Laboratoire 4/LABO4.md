@@ -60,3 +60,6 @@ Changer le label attribute en "Classification"
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/6dd0e3b8135d6ff543a4f6e06e83f98e40db8a78/Laboratoire%204/LABO7_9.png)
 
+### b- Réecriture des résultats et visualisation dans la BD
+Apres cela, nous allons désormais connecter le RasterToPolygonCoercer avec notre BD(writer) et ensuite visualiser les ilots de chaleur via QGIS.
+
