@@ -63,9 +63,14 @@ Pour connaître sur quelle bande se situe quelle couleur vous pouvez ajouter un 
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/8a3282ea8c365a6010c8d3566e4c0f9062ce42e2/Laboratoire%205/LABO5_13.png)
 
+A présent, sélectionner les bandes 0, 1, et 2 dans le "RasterSelector" apres avoir extraite les métadonnées
 
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/0f554e927455b6f98c1724673098898152d7be6b/Laboratoire%205/LABO5_14.png)
 
-![Image Alt]()
+Suite a cela, ajouter un "Esri Reprojector" de 2950 to 3857.
+Ajouter un "PointCloudOnRasterComponentSetter" pour enrichir des jeux de données LiDAR ou tout autre nuage de points avec des informations dérivées de rasters, comme l’élévation, l’intensité ou des classifications.
+Connecter les résultats de l'étape 3 avec cet outil aussi et garder les parametres par défaut.
+
 
 ![Image Alt]()
 
