@@ -62,10 +62,20 @@ Changer le label attribute en "Classification"
 
 ### b- Réecriture des résultats et visualisation dans la BD
 Apres cela, nous allons désormais connecter le RasterToPolygonCoercer avec notre BD(writer) et ensuite visualiser les ilots de chaleur via QGIS.
-La différence sera que cette fois-ci, ce sera un Writer de type PostGIS et non PostGIS Raster car on travaille sur des couches vecteurs.
+La différence sera que cette fois-ci, ce sera un Writer de type PostGIS et non PostGIS Raster car on travaille sur des couches vecteurs vu que le raster a été converti via le "RasterToPolygonCoercer".
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/c2eaecb6cfec601f2169bd9d04717a826360986e/Laboratoire%204/LABO4_10.png)
 
 Dans QGIS, modifier la symbiologie de la couche ilots de chaleur en "catégorisé", puis choisir une palette de couleur, ensuite classer pour avoir l'apercu désiré.
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/c2eaecb6cfec601f2169bd9d04717a826360986e/Laboratoire%204/LABO4_11.png)
+
+### c- Lissage et Amélioration de l'image
+Pour améliorer la netteté et la qualité visuelle de la couche ilots de chaleur, il faut utiliser l'outil de transformation "RasterDiffuser" en ne touchant a rien dans les parametres, conserver les options par défaut.
+Ensuite, ajouter un "RasterCellValueRounder" qui permettra de simplifier ou standardiser les valeurs numériques dans un raster. Changer dans les parametres l'option "Decimal places=1".
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/14604897b87d496280cffbfff6f28b00d133c971/Laboratoire%204/LABO4_12.png)
+
+Et enfin pour visualiser l'amélioration, le dernier traitemwent consiste a transformer le raster en polygon via le "RasterToPolygonCoercer" comm dans la précédente étape.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/14604897b87d496280cffbfff6f28b00d133c971/Laboratoire%204/LABO4_13.png)
 
