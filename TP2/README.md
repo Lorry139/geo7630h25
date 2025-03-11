@@ -53,10 +53,15 @@ Ensuite une visualisation sur fond de carte.
 
 ![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/872d7dd561fb271e0838cb19e950fd5a70efc66d/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20000356.png)
 
-##### f- Nettoyage des données pour ressortir le nombre de sites de stationnements dans les arrondissements de Montréal
-Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements.
+##### f- Nettoyage des données pour ressortir le nombre de sites de stationnements avec la densité dans les arrondissements de Montréal
+Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements en créant un attribut lié à la densité.
 
-![Texte alternatif]()
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/0241dd7cc9e3aa6a1aa37174b502e549f919063a/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20121404.png)
+
+##### g- Exportation des données du nombre de sites et de densité vers un writer postGIS
+Pour finaliser cette première partie, nous allons exporter vers un serveur PostGIS afin d'attribuer une symbologie montrant la densité des stationnements à travers les arrondissements de Montréal qui sont marquées par une graduation de couleur allant des moins denses aux plus denses selon la clarté.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/0241dd7cc9e3aa6a1aa37174b502e549f919063a/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20121326.png)
 
 #### 2- Intégration d'un Reader Shapefile pour l'ajout des analyses spatiaux secondaires
 Dans l'analyse spatiale secondaire, notre but sera de déterminer la présence et la proximité des stations de métro et d'arrets bus dans un rayon de 500m entourant les sites de stationnements.
