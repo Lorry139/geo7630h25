@@ -19,7 +19,7 @@ Durant la réalisation du projet, d'autres idées ont emergés car plusieurs aut
 
 #### 1- Intégration des données d'entrées pour les analyses spatiaux de bases (Stationnements et limites administratives)
 ##### a- Ajout du CSV et du GEOJSON (Reader)
-Spécifiquement pour le CSV stationnements, nous avons ajouté un vertexCreator pour trnasformer les coordonnées X,Y en points afin de faciliter le traitement.
+Spécifiquement pour le CSV stationnements, nous avons ajouté un vertexCreator pour transformer les coordonnées X,Y en points afin de faciliter le traitement.
 
 ##### b- Reprojection
 Ajout de l'outil ESRI Reprojector pour les deux afin de les reprojeter depuis l'EPSG 2950 vers l'EPSG 3857 conformément aux consignes du TP.
@@ -37,3 +37,23 @@ Sur QGIS, la symbologie consistait à montrer les points de stationnements gratu
 
 ##### f- Nettoyage des données pour ressortir le nombre de sites de stationnements dans les arrondissements de Montréal
 Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements.
+
+#### 2- Intégration d'un Reader Shapefile pour l'ajout des analyses spatiaux secondaires
+Dans l'analyse spatiale secondaire, notre but sera de déterminer la présence et la proximité des stations de métro et d'arrets bus dans un rayon de 500m entourant les sites de stationnements.
+
+##### a- Ajout d'un Reader de type Shapefile et Reprojection
+Ajouter les fichiers d'entrée de type shapefile en tant que Reader, puis à reprojeter en en EPSG : 3857 via ESRI Reprojector.
+
+##### b- Nettoyage des données des arrets bus et métro
+Supprimer les attributs non nécessaires ( Code d'arret, id de route, shelter, etc ...) via Attribute manager.
+
+##### c- Calcul de distance entre les arrets des transports en communs et les sites de stationnements via NeighBorFinder
+Tout d'abord, nous allons travailler sur le fichier CSV des stationnements, en nettoyant les données déja reprojeté pour supprimer les heures, le type de stationnement, le nombre de places, etc ... en réutilisant un Attribute Manager.
+Une fois cela fait, ajouter un transformer nommé "NeighBorFinder" afin  de calculer la distance entre les points de stationnements et les points d'arrets.
+
+Nous allons mettre les arrets en tant que couche de base et les stationnements en tant que candidat.
+Ensuite, dans les paramètres, changer le mode de transformation en "candidate first", Le nombre de voisin sera de 1, la distance maximum de recherche à 500m, et changer les paramètres d'attributs en "Merge candidate", puis de meme pour la résolution de conflit.
+
+Grace à ces paramètres, nous pouvons avoir des données regroupant tous les arrets de trouvant à 500m autour des sites de stationnements durant les périodes de déneigements.
+
+![Texte alternatif]()
