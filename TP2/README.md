@@ -21,39 +21,68 @@ Durant la réalisation du projet, d'autres idées ont emergés car plusieurs aut
 ##### a- Ajout du CSV et du GEOJSON (Reader)
 Spécifiquement pour le CSV stationnements, nous avons ajouté un vertexCreator pour transformer les coordonnées X,Y en points afin de faciliter le traitement.
 
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/81d98c944c9df48119620640a487f4c59a3f1c83/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20131338.png)
+
+Pour les limites administratives :
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/81d98c944c9df48119620640a487f4c59a3f1c83/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20131434.png)
+
 ##### b- Reprojection
 Ajout de l'outil ESRI Reprojector pour les deux afin de les reprojeter depuis l'EPSG 2950 vers l'EPSG 3857 conformément aux consignes du TP.
 Les deux sont parametrés de la meme facon.
 
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/81d98c944c9df48119620640a487f4c59a3f1c83/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20131733.png)
+
 ##### c- Jointure spatiale
 Joindre les deux données via PointOnAreaOverlay pour avoir un apercu d'ensemble relatant stationnements et arrondissements de la ville de Montréal.
 
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/6e79d48fa5078755251b08d0bae89dd4f4a81b01/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20230022.png)
+
 ##### d- Nettoyage des données pour ressortir les stationnements gratuits, le nombre de places, et les retstrictions horaires
 Attribute Manager puis supprimer les attributs comme X, Y, doublons en Eng, Arrondissement, et meme le type de stationnement si c'est gratuit ou pas car ce sont tous des stationnements gratuits.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/6e79d48fa5078755251b08d0bae89dd4f4a81b01/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20132919.png)
 
 ##### e- Exportation vers PostGIS Writer
 Ayant obtenus les premiers données de sorties, nous allons l'exporter vers un serveur PostGIS permettant de visualiser sur QGIS et de modifier la symbologie.
 Sur QGIS, la symbologie consistait à montrer les points de stationnements gratuits en périodes de déneigements dont la taille du symbole variera en fonction du nombre de places disponibles comme suit.
 
+![Texte alternatif]()
+
 ##### f- Nettoyage des données pour ressortir le nombre de sites de stationnements dans les arrondissements de Montréal
 Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements.
+
+![Texte alternatif]()
 
 #### 2- Intégration d'un Reader Shapefile pour l'ajout des analyses spatiaux secondaires
 Dans l'analyse spatiale secondaire, notre but sera de déterminer la présence et la proximité des stations de métro et d'arrets bus dans un rayon de 500m entourant les sites de stationnements.
 
+![Texte alternatif]()
+
 ##### a- Ajout d'un Reader de type Shapefile et Reprojection
 Ajouter les fichiers d'entrée de type shapefile en tant que Reader, puis à reprojeter en en EPSG : 3857 via ESRI Reprojector.
+
+![Texte alternatif]()
 
 ##### b- Nettoyage des données des arrets bus et métro
 Supprimer les attributs non nécessaires ( Code d'arret, id de route, shelter, etc ...) via Attribute manager.
 
+![Texte alternatif]()
+
 ##### c- Calcul de distance entre les arrets des transports en communs et les sites de stationnements via NeighBorFinder
 Tout d'abord, nous allons travailler sur le fichier CSV des stationnements, en nettoyant les données déja reprojeté pour supprimer les heures, le type de stationnement, le nombre de places, etc ... en réutilisant un Attribute Manager.
+
+![Texte alternatif]()
+
 Une fois cela fait, ajouter un transformer nommé "NeighBorFinder" afin  de calculer la distance entre les points de stationnements et les points d'arrets.
 
 Nous allons mettre les arrets en tant que couche de base et les stationnements en tant que candidat.
 Ensuite, dans les paramètres, changer le mode de transformation en "candidate first", Le nombre de voisin sera de 1, la distance maximum de recherche à 500m, et changer les paramètres d'attributs en "Merge candidate", puis de meme pour la résolution de conflit.
 
 Grace à ces paramètres, nous pouvons avoir des données regroupant tous les arrets de trouvant à 500m autour des sites de stationnements durant les périodes de déneigements.
+
+![Texte alternatif]()
+
+Voici le processus en somme pour cet analyse de proximité
 
 ![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/3438587713d9ae568aac47169c2fe9d6078ec5d5/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20224908.png)
