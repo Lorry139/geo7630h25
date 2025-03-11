@@ -56,4 +56,4 @@ Ensuite, dans les paramètres, changer le mode de transformation en "candidate f
 
 Grace à ces paramètres, nous pouvons avoir des données regroupant tous les arrets de trouvant à 500m autour des sites de stationnements durant les périodes de déneigements.
 
-![Texte alternatif]()
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/3438587713d9ae568aac47169c2fe9d6078ec5d5/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20224908.png)
