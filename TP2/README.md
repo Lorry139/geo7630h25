@@ -45,9 +45,13 @@ Attribute Manager puis supprimer les attributs comme X, Y, doublons en Eng, Arro
 
 ##### e- Exportation vers PostGIS Writer
 Ayant obtenus les premiers données de sorties, nous allons l'exporter vers un serveur PostGIS permettant de visualiser sur QGIS et de modifier la symbologie.
-Sur QGIS, la symbologie consistait à montrer les points de stationnements gratuits en périodes de déneigements dont la taille du symbole variera en fonction du nombre de places disponibles comme suit.
+Sur QGIS, la symbologie consistait à montrer les points de stationnements gratuits en périodes de déneigements dont la taille du symbole variera en fonction du nombre de places disponibles. Un répartition entre les sites ayant 0-300 places de stationnements, puis de 300-600 places, et enfin 600 places de stationnements et plus avec une graduation légère des couleurs avec le grossissement de la taille des symboles en meme temps.
 
-![Texte alternatif]()
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/872d7dd561fb271e0838cb19e950fd5a70efc66d/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20003446.png)
+
+Ensuite une visualisation sur fond de carte.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/872d7dd561fb271e0838cb19e950fd5a70efc66d/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20000356.png)
 
 ##### f- Nettoyage des données pour ressortir le nombre de sites de stationnements dans les arrondissements de Montréal
 Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements.
@@ -57,22 +61,18 @@ Attribute Manager puis supprimer les attributs pour ne garder que les Arrondisse
 #### 2- Intégration d'un Reader Shapefile pour l'ajout des analyses spatiaux secondaires
 Dans l'analyse spatiale secondaire, notre but sera de déterminer la présence et la proximité des stations de métro et d'arrets bus dans un rayon de 500m entourant les sites de stationnements.
 
-![Texte alternatif]()
-
 ##### a- Ajout d'un Reader de type Shapefile et Reprojection
 Ajouter les fichiers d'entrée de type shapefile en tant que Reader, puis à reprojeter en en EPSG : 3857 via ESRI Reprojector.
 
-![Texte alternatif]()
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/bb7b1182e37ccb3b798ad518546f47582208a8e3/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20222710.png)
 
 ##### b- Nettoyage des données des arrets bus et métro
 Supprimer les attributs non nécessaires ( Code d'arret, id de route, shelter, etc ...) via Attribute manager.
 
-![Texte alternatif]()
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/bb7b1182e37ccb3b798ad518546f47582208a8e3/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20223218.png)
 
 ##### c- Calcul de distance entre les arrets des transports en communs et les sites de stationnements via NeighBorFinder
 Tout d'abord, nous allons travailler sur le fichier CSV des stationnements, en nettoyant les données déja reprojeté pour supprimer les heures, le type de stationnement, le nombre de places, etc ... en réutilisant un Attribute Manager.
-
-![Texte alternatif]()
 
 Une fois cela fait, ajouter un transformer nommé "NeighBorFinder" afin  de calculer la distance entre les points de stationnements et les points d'arrets.
 
@@ -81,8 +81,21 @@ Ensuite, dans les paramètres, changer le mode de transformation en "candidate f
 
 Grace à ces paramètres, nous pouvons avoir des données regroupant tous les arrets de trouvant à 500m autour des sites de stationnements durant les périodes de déneigements.
 
-![Texte alternatif]()
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/bb7b1182e37ccb3b798ad518546f47582208a8e3/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20224519.png)
+
+##### d- Exportation vers un Writer de type PostGIS pour la visualisation sur QGIS
+Pour la visualisation sur QGIS, nous nous sommes basés sur une répartition visuelles des stationnements se trouvant à proximité de nos sites de stationnements, dont la couleur verte de 0-100m de distance, la couleur beige de 100-300m et enfin la couleur pour les arrets se trouvant entre 300-500m de distance.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/60c96a53d670479021b088b634fa2845081a45d9/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20233722.png)
+
+Et pour la visualisation sur fond de carte.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/60c96a53d670479021b088b634fa2845081a45d9/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20233946.png)
 
 Voici le processus en somme pour cet analyse de proximité
 
-![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/3438587713d9ae568aac47169c2fe9d6078ec5d5/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-10%20224908.png)
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/356cc0ebef78ec2f9d8ca686a6f9b8970591550f/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20002850.png)
+
+Et en finalité, le Workbench final durant le traitement des données pour ce projet, bien évidemment, nous essayerons d'ajouter d'autres analyses spatiaux au fur et à mesure de l'avancement des travaux.
+
+![Texte alternatif]()
