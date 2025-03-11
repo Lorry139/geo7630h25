@@ -54,16 +54,41 @@ Ensuite une visualisation sur fond de carte.
 ![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/872d7dd561fb271e0838cb19e950fd5a70efc66d/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20000356.png)
 
 ##### f- Nettoyage des données pour ressortir le nombre de sites de stationnements avec la densité dans les arrondissements de Montréal
-Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements en créant un attribut lié à la densité.
+Attribute Manager puis supprimer les attributs pour ne garder que les Arrondissements (Nom) ainsi que le nombre de site de stationnement dans ces arrondissements.
 
 ![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/0241dd7cc9e3aa6a1aa37174b502e549f919063a/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20121404.png)
 
-##### g- Exportation des données du nombre de sites et de densité vers un writer postGIS
-Pour finaliser cette première partie, nous allons exporter vers un serveur PostGIS afin d'attribuer une symbologie montrant la densité des stationnements à travers les arrondissements de Montréal qui sont marquées par une graduation de couleur allant des moins denses aux plus denses selon la clarté.
+##### g- Exportation des données du nombre de sites par arrondissements vers un writer postGIS
+Pour finaliser cette première partie, nous allons exporter vers un serveur PostGIS afin d'attribuer une symbologie montrant la densité des stationnements à travers les arrondissements de Montréal qui sont marquées par une graduation de couleur allant des moins aux plus selon la clarté.
 
-![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/0241dd7cc9e3aa6a1aa37174b502e549f919063a/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20121326.png)
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/272e1ed1d6d7419092401e34946bdcb889f79aa8/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20175732.png)
 
-#### 2- Intégration d'un Reader Shapefile pour l'ajout des analyses spatiaux secondaires
+#### 2- Création de tuiles hexagonales pour la densité des stationnements
+##### a- Reprojection des limites et stationnements
+Reprojection à partir d'ESRI Reprojector et reprojector pour les stationnements en 4326 pour les tuiles Hexagonales.
+
+##### b- Création des tuiles
+Ajout du Transformer H3HexagonalIndexer en paramétrant l'index résolution à 9 (0.2m) ensuite ajout d'un Dissolver pour lisser les données hexagonales.
+
+##### c- Rejointure spatiale
+Jointure spatiale du CSV stationnement et des limites en EPSG : 4326 avec PointOnAreaOverlayer.
+
+##### d- Calcul de densité et nettoyage
+Calcul de la densité des stationnements par hexagones en créant la densité dans Attribute Creator avec la valeur Nbre_de_stationnement/Area(h3index).
+Ensuite nettoyage des attributs non nécessaires restants avec AttributeKeeper.
+
+Enfin, reprojeter en 3857 conformément au projet avec ESRI reprojector.
+
+##### e- Exportation et visualisation
+Exporter vers un Writer PostGIS pour ensuite créer la symbologie adaptée à la densité des stationnements par hexagones à Montréal.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/272e1ed1d6d7419092401e34946bdcb889f79aa8/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20175639.png)
+
+Voici le workbench final pour cette étape.
+
+![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/272e1ed1d6d7419092401e34946bdcb889f79aa8/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20164927.png)
+
+#### 3- Intégration d'un Reader Shapefile pour l'ajout des analyses spatiaux secondaires
 Dans l'analyse spatiale secondaire, notre but sera de déterminer la présence et la proximité des stations de métro et d'arrets bus dans un rayon de 500m entourant les sites de stationnements.
 
 ##### a- Ajout d'un Reader de type Shapefile et Reprojection
@@ -100,7 +125,3 @@ Et pour la visualisation sur fond de carte.
 Voici le processus en somme pour cet analyse de proximité
 
 ![Texte alternatif](https://github.com/Lorry139/geo7630h25/blob/356cc0ebef78ec2f9d8ca686a6f9b8970591550f/TP2/Images/Capture%20d%E2%80%99%C3%A9cran%202025-03-11%20002850.png)
-
-Et en finalité, le Workbench final durant le traitement des données pour ce projet, bien évidemment, nous essayerons d'ajouter d'autres analyses spatiaux au fur et à mesure de l'avancement des travaux.
-
-![Texte alternatif]()
