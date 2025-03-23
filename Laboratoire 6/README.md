@@ -69,7 +69,17 @@ Activer CREATE IF NEEDED pour la mise à jour automatique.
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/51d8739825dcba50a8b66ec800d7da3a3aa40310/Laboratoire%206/LABO6_13.png)
 
-![Image Alt]()
+Une fois connecté sur ArcGIS Online, il faut ouvrir le MapViewer afin de visualiser le contenu traité sur FME.
+Le MapViewer permet de visualiser dynamiquement les données et d’appliquer des styles cartographiques.
+
+Ouvrir le Feature Layer dans MapViewer.
+Appliquer un style d’agrégation pour représenter les départs et arrivées.
+Configurer les étiquettes pour afficher les totaux par station.
+
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/8c1eeb139535eb1d391ee8493c7a056dc5e387fd/Laboratoire%206/LABO6_14.png)
+
+
 
 ![Image Alt]()
 
