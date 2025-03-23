@@ -52,6 +52,28 @@ En somme, voici la finalité de traitement des départs et arrivées des station
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/3889ba1f9d06052aff53ebbd1a286ee701cd765f/Laboratoire%206/LABO6_11.png)
 
+Exportation des données vers ArcGIS Online
+
+Le but sera de pouvoir publier les données sur AGOL afin de les exploiter dans un tableau de bord interactif.
+
+https://uqam.maps.arcgis.com/home/index.html, le lien qui sera utilisé pour accéder à AGOL
+
+Accéder à ArcGIS Online et créer un dossier GEO7630.
+Aller dans Contenu , puis Mes contenus et sur la gauche créer un Dossier
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/51d8739825dcba50a8b66ec800d7da3a3aa40310/Laboratoire%206/LABO6_12.png)
+
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/51d8739825dcba50a8b66ec800d7da3a3aa40310/Laboratoire%206/LABO6_13.png)
+
+![Image Alt]()
+
+![Image Alt]()
+
+![Image Alt]()
+
+![Image Alt]()
+
 ![Image Alt]()
 
 ![Image Alt]()
