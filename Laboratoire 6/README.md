@@ -63,6 +63,9 @@ Aller dans Contenu , puis Mes contenus et sur la gauche créer un Dossier
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/51d8739825dcba50a8b66ec800d7da3a3aa40310/Laboratoire%206/LABO6_12.png)
 
+Connecter FME à AGOL Writer.
+Créer un nouveau Feature Service dans le dossier "Geo7630h25" précédemment crée.
+Activer CREATE IF NEEDED pour la mise à jour automatique.
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/51d8739825dcba50a8b66ec800d7da3a3aa40310/Laboratoire%206/LABO6_13.png)
 
