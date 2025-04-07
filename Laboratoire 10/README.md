@@ -79,7 +79,28 @@ PS: Ne jamais oublier de mettre la visibilité de nos ports en Public pour qu'il
 Cliquer sur JSON
 ![Image Alt](https://github.com/Captain-Oski/GEO7630_H25/raw/main/Laboratoires/Semaine%2010/image.png)
 
-![Image Alt]()
+Repérer l'url en bas et n'oubliez pas de changer le début de l'adresse du serveur pour votre adresse.
+Copier l’URL du service et remplacez-la dans le script.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/52ab4cf24fe1887d783112e6fa3aafa31ce46943/Laboratoire%2010/Capture%20d%E2%80%99%C3%A9cran%202025-03-18%20210212.png)
+
+Le source-layer correspond au nom de la couche à afficher à partir du service de tuiles. Il est essentiel d’utiliser le bon nom, qui est défini dans la configuration du serveur de tuiles.
+
+Ajouter la méthode map.onLoad() dans app.js :
+
+map.on('load', function () {
+    map.addSource('NOM UNIQUE QUE VOUS SOUHAITEZ DONNER À VOTRE SOURCE', {
+        type: 'vector',
+        tiles: ['https://your-server-url/PROPRIÉTÉ IS DE LA SOURCE.JSON/{z}/{x}/{y}.pbf']
+    });
+    map.addLayer({
+        'id': 'IDENTIFIANT UNIQUE DU LAYER QUE VOUS SOUHAITEZ DONNER ',
+        'type': 'fill',
+        'source': 'NOM QUE VOUS AVEZ DONNÉ À VOTRE SOURCE',
+        'source-layer': 'PROPRIÉTÉ IS DE LA SOURCE.JSON'
+    });
+});
+
 
 ![Image Alt]()
 
