@@ -21,30 +21,41 @@ Créer un fichier map-controls.js et injecter la carte et les controleurs de car
 
 Voici le code qu'on a utilisé pour celui-ci :
 
-// création de la carte Mapbox GL
-var map = new maplibregl.Map({
-    container: 'map', // identifiant de l'élément HTML conteneur de la carte
-    style: 'https://api.maptiler.com/maps/dataviz/style.json?key=JhO9AmIPH59xnAn5GiSj', // URL du style de la carte
-    center: [-73.55, 45.55], // position centrale de la carte
-    zoom: 9, // niveau de zoom initial
-    hash: true // activation du hash pour la gestion de l'historique de la carte
-});
-map.addControl(new maplibregl.NavigationControl({
-    showCompass: true,
-    showZoom: true,
-    visualizePitch: true
-}), 'top-right');
-map.addControl(new maplibregl.GeolocateControl({
-    positionOptions: {
-        enableHighAccuracy: true
-    },
-    trackUserLocation: true,
-    showUserHeading: true
-}), 'bottom-right');
-map.addControl(new maplibregl.ScaleControl({
-    maxWidth: 200,
-    unit: 'metric'
-}), 'bottom-left');
+        var commercesSource = {
+  type: 'geojson',
+  data: 'https://donnees.montreal.ca/dataset/c1d65779-d3cb-44e8-af0a-b9f2c5f7766d/resource/ece728c7-6f2d-4a51-a36d-21cd70e0ddc7/download/businesses.geojson'
+};
+
+var commercesLayer = {
+  id: 'commerces',
+  type: 'circle',
+  source: 'commerces_source',
+  paint: {
+    'circle-radius': [
+      'match',
+      ['get', 'type'],
+      'Épicerie', 5,
+      'Pâtisserie/Boulangerie', 7,
+      'Distributrice automatique', 4,
+      'Pharmacie', 6,
+      'Restaurant', 5,
+      3
+    ],
+    'circle-color': [
+      'match',
+      ['get', 'type'],
+      'Épicerie', 'orange',
+      'Pâtisserie/Boulangerie', 'yellow',
+      'Distributrice automatique', 'blue',
+      'Pharmacie', 'green',
+      'Restaurant', 'purple',
+      'grey'
+    ],
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1
+  },
+  filter: ['==', ['get', 'statut'], 'Ouvert']
+};
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b169f0cf09d1de5a64aa5ec4c679d78731730de7/lab11/Images/Capture%20d%E2%80%99%C3%A9cran%202025-04-07%20143013.png)
 
@@ -56,7 +67,7 @@ Source GeoJSON dynamique depuis Montréal Source GeoJSON via données ouvertes o
 
 Aussi, avec le style de la couche comme variable de couche.
 
-var commercesSource = {
+        var commercesSource = {
   type: 'geojson',
   data: 'https://donnees.montreal.ca/dataset/c1d65779-d3cb-44e8-af0a-b9f2c5f7766d/resource/ece728c7-6f2d-4a51-a36d-21cd70e0ddc7/download/businesses.geojson'
 };
@@ -106,7 +117,7 @@ Source GeoJSON via données ouvertes ou pgfeatureserv ou pgtileserv
 Polygones avec contour noir, remplissage semi-transparent
 Labels centrés par arrondissement sur la propriété : nom
 
-var arrondissementsSource = {
+        var arrondissementsSource = {
   type: 'geojson',
   data: 'https://donnees.montreal.ca/dataset/9797a946-9da8-41ec-8815-f6b276dec7e9/resource/e18bfd07-edc8-4ce8-8a5a-3b617662a794/download/limites-administratives-agglomeration.geojson'
 };
@@ -150,7 +161,7 @@ Ajout des sources et des couches :
         commerces_source → commerces
         arrondissements-source → arrondissements, arrondissements-labels
 
-map.on('load', function () {
+        map.on('load', function () {
   // Ajouter sources
   map.addSource('commerces_source', {
     type: 'geojson',
