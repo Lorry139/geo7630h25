@@ -274,3 +274,6 @@ map.on('click', 'commerces', (e) => {
 });
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b169f0cf09d1de5a64aa5ec4c679d78731730de7/lab11/Images/Capture%20d%E2%80%99%C3%A9cran%202025-04-02%20101240.png)
+
+
+Fin du laboratoire 11.
