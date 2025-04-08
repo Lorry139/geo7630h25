@@ -2,7 +2,11 @@
 ## 1- Initialisation de la carte
 
 ### Élaborer les bases du webmapping
-Tout d'abord, commencer par créer les fichiers .env, et index.html
+Tout d'abord, commencer par créer les fichiers .env, et index.html et les configurer
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/ad4947871171cf5fa52b9d43b08502d8b8b20a28/lab11/Images/Capture%20d%E2%80%99%C3%A9cran%202025-04-07%20142827.png)
+
+
 
 ### Créer un fichier : map-controls.js
 
