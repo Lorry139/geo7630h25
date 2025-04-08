@@ -101,11 +101,105 @@ map.on('load', function () {
     });
 });
 
+Recharger la carte pour voir les données s'afficher.
 
-![Image Alt]()
+Vérification et dépannage :
 
-![Image Alt]()
+Si les tuiles ne s’affichent pas, il faut vérifier que le service de tuiles est bien public et accessible.
+Vérifier dans Port, que les services soient public et non pas privé.
 
-![Image Alt]()
+## 5- Stylisation
+Ajouter une propriété paint pour modifier le rendu : ! Attention les propriétés du layer sont séparées par des virgules.
+'paint': {
+    'fill-color': '#FF0000',
+    'fill-opacity': 0.5
+}
 
-![Image Alt]()
+Pour un style plus avancé appliqué à la couche qté d'arbres :
+'paint': {
+    'fill-color': [
+        'interpolate',
+        ['linear'],
+        ['get', 'qt_arbres'],
+        0, 'rgb(255, 255, 255)',
+        100, 'rgba(192, 192, 255, 0.64)',
+        1000, 'rgba(46, 46, 255, 0.58)',
+        5000, 'rgba(68, 0, 255, 0.66)',
+        7000, 'rgba(19, 0, 70, 0.66)'
+    ],
+    'fill-opacity': 0.7
+}
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b17402e2507162d85466aac6324b0d89bda2f1c2/Laboratoire%2010/Capture%20d%E2%80%99%C3%A9cran%202025-03-18%20210650.png)
+
+## 6- Ajout d’une couche WFS
+
+Utiliser FME pour charger les limites d'arrondissements dans votre schéma de bases de données (nommer la table aussi simplement que arrondissements)
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b17402e2507162d85466aac6324b0d89bda2f1c2/Laboratoire%2010/Capture%20d%E2%80%99%C3%A9cran%202025-03-18%20212233.png)
+
+Ensuite
+Rendre le port 9000 (pg_featureserv) public pour trouver et copier l'URL du service WFS des arrondissements.
+Rentrer dans la collection pour visionner les couches arrondissements.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b17402e2507162d85466aac6324b0d89bda2f1c2/Laboratoire%2010/Capture%20d%E2%80%99%C3%A9cran%202025-03-18%20212552.png)
+
+Ajouter cette ligne de code dans app.js pour utiliser la fonction Load WFS :
+/**
+ * Fonction qui génère une couleur aléatoire en format hexadécimal.
+ * @returns {string} Couleur générée au format hexadécimal.
+ */
+function getRandomColor() {
+    // Définition des caractères hexadécimaux possibles
+    var letters = '0123456789ABCDEF';
+    // Initialisation de la couleur avec le préfixe hexadécimal (#)
+    var color = '#';
+    // Boucle pour générer chaque caractère de la couleur (6 caractères)
+    for (var i = 0; i < 6; i++) {
+        // Sélection aléatoire d'un caractère hexadécimal
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    // Retourne la couleur générée au format hexadécimal
+    return color;
+}
+
+/**
+ * Fonction qui charge une couche WFS depuis pgFeatureServ et l'ajoute à la carte MapLibre.
+ * Cette fonction ajoute une source de données GeoJSON à partir d'une URL pgFeatureServ
+ * et ajoute une couche de remplissage ('fill') à la carte MapLibre en utilisant cette source de données.
+ */
+function loadWFS() {
+    // Ajout de la source de données des arrondissements depuis pgFeatureServ
+    map.addSource('arrondissements-source', {
+        type: 'geojson', // Type de source de données
+        data: 'UNE URL GeoJSON qui fini par .json' // URL pgFeatureServ GeoJSON ! Attention il faut bien inclure la méthode qui fait la requete sans limite d'items de données
+    });
+
+    // Ajout de la couche des arrondissements à la carte MapLibre
+    map.addLayer({
+        'id': 'arrondissements', // Identifiant de la couche
+        'type': 'fill', // Type de géométrie de la couche (remplissage)
+        'source': 'arrondissements-source', // Source des données de la couche
+        'paint': {
+            'fill-outline-color': 'black',
+            'fill-color': getRandomColor(), // Si la condition est vraie, utilisez une couleur aléatoire
+            'fill-opacity': 0.3 // Opacité de remplissage (30%)
+        }
+    });
+}
+
+Et ensuite, ajouter un bouton dans index.HTML :
+<div class='map-overlay top' >
+    <button type="button" class="btn btn-primary" onclick="loadWFS()">Load WFS Data</button>
+</div>
+
+Enfin, recharger la page et cliquer sur le bouton pour afficher la couche WFS.
+Normalement, voici le visuel final que l'on doit avoir :
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/b17402e2507162d85466aac6324b0d89bda2f1c2/Laboratoire%2010/Capture%20d%E2%80%99%C3%A9cran%202025-03-18%20214917.png)
+
+En bonus, pour avoir les couches quartiers en dessus des arrondissements, nous pouvons utiliser cette ligne de code :
+'before': 'qt_arbres_quartier' // This ensures that 'arrondissements' is placed beneath 'qt_arbres_quartier'
+
+
+Fin du laboratoire 10.
