@@ -22,6 +22,11 @@ Créer un fichier map-controls.js et injecter la carte et les controleurs de car
 Voici le code qu'on a utilisé pour celui-ci :
 
         var commercesSource = {
+        type: 'geojson',
+        data: 'https://donnees.montreal.ca/dataset/c1d65779-d3cb-44e8-af0a-b9f2c5f7766d/resource/ece728c7-6f2d-4a51-a36d-21cd70e0ddc7/download/businesses.geojson'
+};
+
+        var commercesSource = {
   type: 'geojson',
   data: 'https://donnees.montreal.ca/dataset/c1d65779-d3cb-44e8-af0a-b9f2c5f7766d/resource/ece728c7-6f2d-4a51-a36d-21cd70e0ddc7/download/businesses.geojson'
 };
