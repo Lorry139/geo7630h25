@@ -1,6 +1,10 @@
 # Cartographie interactive avec MapLibreGL
-## Initialisation de la carte
-Créer un fichier : map-controls.js
+## 1- Initialisation de la carte
+
+### Élaborer les bases du webmapping
+Tout d'abord, commencer par créer les fichiers .env, et index.html
+
+### Créer un fichier : map-controls.js
 
 Créer un fichier map-controls.js et injecter la carte et les controleurs de carte (var map = new maplibregl.Map , var control = map.NavigationControl(...) etc...)
 
