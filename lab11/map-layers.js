@@ -38,7 +38,7 @@ var arrondissementsSource = {
   type: 'geojson',
   data: 'https://donnees.montreal.ca/dataset/9797a946-9da8-41ec-8815-f6b276dec7e9/resource/e18bfd07-edc8-4ce8-8a5a-3b617662a794/download/limites-administratives-agglomeration.geojson'
 };
- 
+
 var arrondissementsLayer = {
   id: 'arrondissements',
   type: 'fill',
@@ -51,20 +51,20 @@ var arrondissementsLayer = {
 };
 
 var arrondissementsLabelsLayer = {
-    id: 'arrondissements-labels',
-    type: 'symbol',
-    source: 'arrondissements-source',
-    layout: {
-      'text-field': ['get', 'NOM'],
-      'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-      'text-size': 14,
-      'text-anchor': 'center'
-    },
-    paint: {
-      'text-color': '#111',
-      'text-halo-color': '#fff',
-      'text-halo-width': 1.5
-    },
-    maxzoom: 13
-  };
+  id: 'arrondissements-labels',
+  type: 'symbol',
+  source: 'arrondissements_source', // ✅ correspond bien au nom de la source
+  layout: {
+    'text-field': ['get', 'NOM'],
+    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+    'text-size': 14,
+    'text-anchor': 'center'
+  },
+  paint: {
+    'text-color': '#111',
+    'text-halo-color': '#fff',
+    'text-halo-width': 1.5
+  },
+
+};
   

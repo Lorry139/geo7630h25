@@ -1,4 +1,5 @@
-// Ajouter sources
+map.on('load', function () {
+  // Ajouter sources
   map.addSource('commerces_source', {
     type: 'geojson',
     data: 'https://donnees.montreal.ca/dataset/c1d65779-d3cb-44e8-af0a-b9f2c5f7766d/resource/ece728c7-6f2d-4a51-a36d-21cd70e0ddc7/download/businesses.geojson'
@@ -43,7 +44,7 @@
   map.addLayer({
     id: 'arrondissements-labels',
     type: 'symbol',
-    source: 'arrondissements-source',
+    source: 'arrondissements_source',
     layout: {
       'text-field': ['get', 'NOM'],
       'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
@@ -55,7 +56,6 @@
       'text-halo-color': '#fff',
       'text-halo-width': 1.5
     },
-    maxzoom: 13
   });
-  
+
 });
