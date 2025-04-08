@@ -190,7 +190,7 @@ function loadWFS() {
 
 Et ensuite, ajouter un bouton dans index.HTML :
 <div class='map-overlay top' >
-    <button type="button" class="btn btn-primary" onclick="loadWFS()">Load WFS Data</button>
+<button type="button" class="btn btn-primary" onclick="loadWFS()">Load WFS Data</button>
 </div>
 
 Enfin, recharger la page et cliquer sur le bouton pour afficher la couche WFS.
