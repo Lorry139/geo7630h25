@@ -163,4 +163,16 @@ Et une légende.
 
 ![Image Alt](https://github.com/Lorry139/geo7630h25/blob/cec076fc611d5a6168cbb31be419868ecdd5c4fb/Laboratoire%206/LABO6_30.png)
 
-![Image Alt]()
+### ESRI Experience Builder
+Ouvrir Experience Builder en créant une nouvelle carte grille vierge, puis faire glisser une carte dans l'interface, et sélectionner notre carte 
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/6c18ac00d079cddb977aa7ff0ba155047d8ee5d5/Laboratoire%206/Capture%20d%E2%80%99%C3%A9cran%202025-04-28%20194507.png)
+
+Ensuite, ajout es légendes et des géosignets sur l,interface du fond de carte, en drag and drop.
+
+![Image Alt](https://github.com/Lorry139/geo7630h25/blob/38cff8dd3e28b72af69a9609663430c4bd1cd43c/Laboratoire%206/Capture%20d%E2%80%99%C3%A9cran%202025-04-28%20201057.png)
+
+
+
+
+
